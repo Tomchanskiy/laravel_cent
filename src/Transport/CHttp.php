@@ -21,10 +21,10 @@ class CHttp
         ]);
         try {
             $response = $this->client->post('', [
-                'form_params' => $json,
+                'body' => $json,
                 'headers' => $this->getHeaders(),
             ]);
-            $finally = json_decode((string) $response->getBody())[0];
+            $finally = json_decode((string) $response->getBody());
         } catch (ClientException $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
@@ -33,8 +33,8 @@ class CHttp
 	protected function getHeaders() 
 	{
 		return [
-			'Content-Type: application/json',
-			'Authorization: apikey ' . config('centrifugo.apikey')
+			'Content-Type' => 'application/json',
+			'Authorization' => 'apikey ' . config('centrifugo.apikey')
 		];
 	}
 	protected function test($method, $params = []) {
