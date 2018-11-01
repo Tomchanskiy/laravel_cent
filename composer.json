@@ -1,0 +1,23 @@
+{
+    "name": "tomchanio/php_cent",
+    "description": "Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for Laravel 5.5+",
+    "keywords": ["laravel", "centrifuge", "centrifugo", "php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tomchanio",
+            "email": "support@fastup.su"
+        }
+    ],
+    "require": {
+        "illuminate/container": "5.5.*",
+        "illuminate/support": "5.5.*",
+        "predis/predis": "^1.1",
+        "guzzlehttp/guzzle": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tomchanio\\Centrifugo\\": "src/"
+        }
+    }
+}
