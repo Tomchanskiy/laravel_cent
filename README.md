@@ -2,7 +2,7 @@
 Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for Laravel 5.5+
 
 ## Base Installation
-1. Run `composer require tomchanio/php_cent` & `composer update`
+1. Run `composer require tomchanio/laravel_cent` & `composer update`
 2. Create `config/centrifugo.php` as provided below
 3. Add alias in `config/app.php` as provided below
 
