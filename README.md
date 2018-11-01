@@ -6,8 +6,6 @@ Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for La
 2. Create `config/centrifugo.php` as provided below
 3. Add alias in `config/app.php` as provided below
 
->For laravel 5.5+ use version >= "2.5"
-
 ## Config example `config/centrifugo.php`
 ```php
 <?php
