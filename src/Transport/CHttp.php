@@ -7,7 +7,7 @@ use Tomchanio\Centrifugo\Exceptions\HttpException;
 
 class CHttp
 {
-	protected $client;
+    protected $client;
     function __construct(Client $client)
     {
         $this->client = $client;
@@ -30,23 +30,11 @@ class CHttp
         }
         return $finally;
     }
-	protected function getHeaders() 
-	{
-		return [
-			'Content-Type' => 'application/json',
-			'Authorization' => 'apikey ' . config('centrifugo.apikey')
-		];
-	}
-	protected function test($method, $params = []) {
-        $ch = curl_init();
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['method' => $method, 'params' => (array)$params]));
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeaders());
-		curl_setopt($ch, CURLOPT_URL, config('centrifugo.url'));
-		$data = curl_exec($ch);
-		curl_close($ch);
-		return $data;
+    protected function getHeaders() 
+    {
+        return [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'apikey ' . config('centrifugo.apikey')
+        ];
     }
 }
