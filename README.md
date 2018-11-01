@@ -97,4 +97,4 @@ class Controller
         // You can create a controller to bild your own interface;
     }
 ```
-### For more informations go [here](https://fzambia.gitbooks.io/centrifugal/content/)
+### For more informations go [here](https://centrifugal.github.io/centrifugo/)
