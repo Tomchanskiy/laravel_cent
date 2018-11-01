@@ -1,4 +1,4 @@
-# tomchanio / php_cent
+# tomchanio / laravel_cent
 Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for Laravel 5.5+
 
 ## Base Installation
