@@ -1,5 +1,5 @@
 {
-    "name": "tomchanio/php_cent",
+    "name": "tomchanio/laravel_cent",
     "description": "Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for Laravel 5.5+",
     "keywords": ["laravel", "centrifuge", "centrifugo", "php"],
     "license": "MIT",
