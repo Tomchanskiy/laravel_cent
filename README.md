@@ -10,12 +10,11 @@ Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for La
 ```php
 <?php
     return [
-        'driver'          => 'centrifugo', // redis channel name as provided in cent. conf ($driver.".api")
+        'driver'          => 'centrifugo', // redis channel name as provided in cent.
         'transport'       => 'http', // http || redis connection, check more information below
-        'redisConnection' => 'centrifugo', // only for redis, name of connection more information below
         'baseUrl'         => 'http://localhost:8000/api/', // full api url
-        'secret'          => 'shlasahaposaheisasalssushku', // you super secret key
-        'apikey'          => 'shlasahaposaheisasalssushku', // you api key
+        'secret'          => 'skoniksnyashamoyanikamuneotdam', // you super secret key
+        'apikey'          => 'skoniksnyashamoyanikamuneotdam', // you api key
     ];
 
 ```
@@ -58,6 +57,11 @@ Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for La
 * 'broadcast' 
 * 'unsubscribe' 
 * 'disconnect'
+* 'presence'
+* 'presence_stats'
+* 'history'
+* 'history_remove'
+* 'channels'
 * 'info'
 
 >Redis dont provides this methods:
