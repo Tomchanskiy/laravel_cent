@@ -2,9 +2,7 @@
 namespace Tomchanio\Centrifugo;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Redis;
 use Tomchanio\Centrifugo\Transport\CHttp;
-use Tomchanio\Centrifugo\Transport\CRedis;
 
 class Centrifugo
 {
@@ -12,6 +10,13 @@ class Centrifugo
     {
         return $this->send('publish', [
             'channel' => $channel,
+            'data' => $data,
+        ]);
+    }
+	public function broadcast($channels, $data)
+    {
+        return $this->send('broadcast', [
+            'channels' => $channels,
             'data' => $data,
         ]);
     }
@@ -34,12 +39,28 @@ class Centrifugo
             'channel' => $channel,
         ]);
     }
+	public function presence_stats($channel)
+    {
+        return $this->send('presence_stats', [
+            'channel' => $channel,
+        ]);
+    }
     public function history($channel)
     {
         return $this->send('history', [
             'channel' => $channel,
         ]);
     }
+	public function history_remove($channel)
+    {
+        return $this->send('history_remove', [
+            'channel' => $channel,
+        ]);
+    }
+	public function channels() 
+	{
+		return $this->send('channels');
+	}
 	public function info()
     {
         return $this->send('info');
@@ -58,19 +79,15 @@ class Centrifugo
 
         return implode('.', $segments);
     }
-	protected function getTransport($method){
-        if(config('centrifugo.transport') == 'redis' && in_array($method, $this->rmethods)) {
-            $client = Redis::connection(config('centrifugo.redisConnection'))->client();
-            return new CRedis($client, config('centrifugo.driver'));
-        } else {
-            $client = new Client(['base_uri' => config('centrifugo.baseUrl')]);
-            return new CHttp($client);
-        }
-    }
-    protected function send($method, $params = []){
+    protected function send($method, $params = []) 
+	{
         $transport = $this->getTransport($method);
         $response = $transport->send($method, $params);
         return $response;
+    }
+	protected function getTransport($method) 
+	{
+        return new CHttp();
     }
 	protected function urlsafeB64Encode($input) 
 	{
