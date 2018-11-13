@@ -1,5 +1,5 @@
 # tomchanio / laravel_cent
-Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for Laravel 5.5+
+Centrifugo (Centrifuge) [2.0+] PHP Server HTTP API implementation for Laravel 5.5+
 
 ## Base Installation
 1. Run `composer require tomchanio/laravel_cent` & `composer update`
@@ -10,8 +10,6 @@ Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for La
 ```php
 <?php
     return [
-        'driver'          => 'centrifugo', // redis channel name as provided in cent.
-        'transport'       => 'http', // http || redis connection, check more information below
         'baseUrl'         => 'http://localhost:8000/api/', // full api url
         'secret'          => 'skoniksnyashamoyanikamuneotdam', // you super secret key
         'apikey'          => 'skoniksnyashamoyanikamuneotdam', // you api key
@@ -28,45 +26,7 @@ Centrifugo (Centrifuge) [2.0+] PHP Server REDIS & HTTP API implementation for La
     
 ```
 
-## Setting redis as transport
->Read notes about redis transport provided methods below. To set redis as transport :
 
-1. Add your redis connections add your connection to `config/database.php` as provided below
-2. Change `config/centrifugo.php` to redis settings
-
-## Adding redis connection `config/database.php`
-```php
- 'redis' => [
-        ...
-        'centrifugo' => [
-            'scheme' => 'tcp',      // unix
-            'host' => '127.0.0.1',  // null for unix
-            'path' => '',           // or unix path
-            'password' => '',
-            'port' => 6379,         // null for unix
-            'database' => 1,        // cent. db like in cent. configs
-        ],
-    ],
-```
-
-
-## Redis supported transport
->Make shure that **HTTP connection must work independently from redis connection**.
->It is because redis transport provides only this methods:
-* 'publish' 
-* 'broadcast' 
-* 'unsubscribe' 
-* 'disconnect'
-* 'presence'
-* 'presence_stats'
-* 'history'
-* 'history_remove'
-* 'channels'
-* 'info'
-
->Redis dont provides this methods:
-* presence
-* history
 
 ## [Module usage || sending your requests] example
 ```php
