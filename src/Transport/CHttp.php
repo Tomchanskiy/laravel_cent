@@ -18,8 +18,8 @@ class CHttp
 	protected function getHeaders() 
 	{
 		return [
-			'Content-Type' => 'application/json',
-			'Authorization' => 'apikey ' . config('centrifugo.apikey')
+			'Content-Type: application/json',
+			'Authorization: apikey ' . config('centrifugo.apikey')
 		];
 	}
 	protected function response($method, $params) {
