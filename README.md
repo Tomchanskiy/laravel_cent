@@ -10,7 +10,7 @@ Centrifugo (Centrifuge) [2.0+] PHP Server HTTP API implementation for Laravel 5.
 ```php
 <?php
     return [
-        'baseUrl'         => 'http://localhost:8000/api/', // full api url
+        'url'         => 'http://localhost:8000/api/', // full api url
         'secret'          => 'skoniksnyashamoyanikamuneotdam', // you super secret key
         'apikey'          => 'skoniksnyashamoyanikamuneotdam', // you api key
     ];
